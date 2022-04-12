@@ -2,6 +2,9 @@ using CompDirectorAPI.Data;
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,9 +14,37 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+builder.Services.AddCors(policy =>
+{
+    policy.AddPolicy("OpenCorsPolicy", opt =>
+    {
+        opt.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = "JwtBearer";
+    options.DefaultChallengeScheme = "JwtBearer";
+})
+    .AddJwtBearer("JwtBearer", jwtBearerOptions =>
+    {
+        jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetValue<string>("Secrets:SecurityKey"))),
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.FromMinutes(5)
+        };
+    });
 
 builder.Services.AddSwaggerGen(setup =>
 {
@@ -42,6 +73,7 @@ else
 }
 
 app.UseHttpsRedirection();
+app.UseCors("OpenCorsPolicy");
 app.UseStaticFiles();
 
 app.UseRouting();
