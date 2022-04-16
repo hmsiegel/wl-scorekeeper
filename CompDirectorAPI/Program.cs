@@ -1,7 +1,9 @@
 using CompDirectorAPI.Data;
 using CompDirectorAPI.Library.DataAccess;
+using CompDirectorAPI.Library.Services;
 
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
@@ -30,7 +32,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
-builder.Services.AddTransient<IUserData, UserData>(); 
+builder.Services.AddTransient<IUserData, UserData>();
+builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
 
 
 builder.Services.AddAuthentication(options =>
