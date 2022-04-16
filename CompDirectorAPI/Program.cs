@@ -10,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -36,6 +37,11 @@ builder.Services.AddTransient<IUserData, UserData>();
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
 
+builder.Services.AddAuthentication().AddGoogle(googleOptions =>
+{
+    googleOptions.ClientId = configuration.GetValue<string>("Authentication:Google:ClientId");
+    googleOptions.ClientSecret = configuration.GetValue<string>("Authentication:Google:ClientSecret");
+});
 
 builder.Services.AddAuthentication(options =>
 {
@@ -47,7 +53,7 @@ builder.Services.AddAuthentication(options =>
         jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetValue<string>("Secrets:SecurityKey"))),
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration.GetValue<string>("Secrets:SecurityKey"))),
             ValidateIssuer = false,
             ValidateAudience = false,
             ValidateLifetime = true,
