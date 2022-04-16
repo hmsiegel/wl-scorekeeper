@@ -37,12 +37,6 @@ builder.Services.AddTransient<IUserData, UserData>();
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
 
-builder.Services.AddAuthentication().AddGoogle(googleOptions =>
-{
-    googleOptions.ClientId = configuration.GetValue<string>("Authentication:Google:ClientId");
-    googleOptions.ClientSecret = configuration.GetValue<string>("Authentication:Google:ClientSecret");
-});
-
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = "JwtBearer";
@@ -59,6 +53,16 @@ builder.Services.AddAuthentication(options =>
             ValidateLifetime = true,
             ClockSkew = TimeSpan.FromMinutes(5)
         };
+    })
+    .AddGoogle(googleOptions =>
+    {
+        googleOptions.ClientId = configuration.GetValue<string>("Authentication:Google:ClientId");
+        googleOptions.ClientSecret = configuration.GetValue<string>("Authentication:Google:ClientSecret");
+    })
+    .AddFacebook(facebookOptions =>
+    {
+        facebookOptions.AppId = configuration.GetValue<string>("Authentication:Facebook:AppId");
+        facebookOptions.AppSecret = configuration.GetValue<string>("Authentication:Facebook:AppSecret");
     });
 
 builder.Services.AddSwaggerGen(setup =>

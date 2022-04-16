@@ -11,9 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScoreKeeper", "ScoreKeeper"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompDirectorAPI.Library", "CompDirectorAPI.Library\CompDirectorAPI.Library.csproj", "{6A9E8734-3397-4055-9DF1-8C2D7CA76031}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScorekeeperAPI", "ScorekeeperAPI\ScorekeeperAPI.csproj", "{DC7E8B47-5718-41DA-9756-D379169568BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScorekeeperAPI", "ScorekeeperAPI\ScorekeeperAPI.csproj", "{DC7E8B47-5718-41DA-9756-D379169568BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorekeeper.Library", "Scorekeeper.Library\Scorekeeper.Library.csproj", "{FCB8B946-6F06-4C07-A435-E8E6F940EF03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorekeeper.Library", "Scorekeeper.Library\Scorekeeper.Library.csproj", "{FCB8B946-6F06-4C07-A435-E8E6F940EF03}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared Library", "Shared Library", "{31E4E8F9-7FF5-49FA-A19F-3AC7C5ABE26D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
