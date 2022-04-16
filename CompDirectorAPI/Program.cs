@@ -63,6 +63,11 @@ builder.Services.AddAuthentication(options =>
     {
         facebookOptions.AppId = configuration.GetValue<string>("Authentication:Facebook:AppId");
         facebookOptions.AppSecret = configuration.GetValue<string>("Authentication:Facebook:AppSecret");
+    })
+    .AddMicrosoftAccount(microsoftOptions =>
+    {
+        microsoftOptions.ClientId = configuration.GetValue<string>("Authentication:Microsoft:ClientId");
+        microsoftOptions.ClientSecret = configuration.GetValue<string>("Authentication:Microsoft:ClientSecret");
     });
 
 builder.Services.AddSwaggerGen(setup =>
