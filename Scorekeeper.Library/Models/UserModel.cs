@@ -1,4 +1,4 @@
-﻿namespace CompDirectorAPI.Library.Models;
+﻿namespace Scorekeeper.Library.Models;
 
 public class UserModel
 {

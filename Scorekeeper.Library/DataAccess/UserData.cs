@@ -1,6 +1,7 @@
-﻿using CompDirectorAPI.Library.Models;
+﻿
+using Scorekeeper.Library.Models;
 
-namespace CompDirectorAPI.Library.DataAccess;
+namespace Scorekeeper.Library.DataAccess;
 
 public class UserData : IUserData
 {

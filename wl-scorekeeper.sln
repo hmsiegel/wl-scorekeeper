@@ -9,7 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CompDirector", "CompDirecto
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScoreKeeper", "ScoreKeeper", "{095517AA-EDF5-43B9-BDB2-2883B1970009}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompDirectorAPI.Library", "CompDirectorAPI.Library\CompDirectorAPI.Library.csproj", "{6A9E8734-3397-4055-9DF1-8C2D7CA76031}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompDirectorAPI.Library", "CompDirectorAPI.Library\CompDirectorAPI.Library.csproj", "{6A9E8734-3397-4055-9DF1-8C2D7CA76031}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScorekeeperAPI", "ScorekeeperAPI\ScorekeeperAPI.csproj", "{DC7E8B47-5718-41DA-9756-D379169568BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorekeeper.Library", "Scorekeeper.Library\Scorekeeper.Library.csproj", "{FCB8B946-6F06-4C07-A435-E8E6F940EF03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,14 @@ Global
 		{6A9E8734-3397-4055-9DF1-8C2D7CA76031}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A9E8734-3397-4055-9DF1-8C2D7CA76031}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A9E8734-3397-4055-9DF1-8C2D7CA76031}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC7E8B47-5718-41DA-9756-D379169568BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC7E8B47-5718-41DA-9756-D379169568BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC7E8B47-5718-41DA-9756-D379169568BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC7E8B47-5718-41DA-9756-D379169568BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCB8B946-6F06-4C07-A435-E8E6F940EF03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCB8B946-6F06-4C07-A435-E8E6F940EF03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCB8B946-6F06-4C07-A435-E8E6F940EF03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCB8B946-6F06-4C07-A435-E8E6F940EF03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +44,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{1CAB4B04-7D6B-4056-A8C1-7F80B76A7582} = {145209B6-65EF-4FC3-93EE-E1027BE6163E}
 		{6A9E8734-3397-4055-9DF1-8C2D7CA76031} = {145209B6-65EF-4FC3-93EE-E1027BE6163E}
+		{DC7E8B47-5718-41DA-9756-D379169568BC} = {095517AA-EDF5-43B9-BDB2-2883B1970009}
+		{FCB8B946-6F06-4C07-A435-E8E6F940EF03} = {095517AA-EDF5-43B9-BDB2-2883B1970009}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B851C49F-2F64-4E28-8243-4C29AE72D341}
